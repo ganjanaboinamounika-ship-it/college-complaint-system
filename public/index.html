@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A colourful college complaint and resolution platform for students and college deans.">
+  <title>CampusCare | College Complaint System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" data-view="landing" aria-label="CampusCare home">
+    <span class="brand-mark">CC</span>
+    <span><strong>CampusCare</strong><small>College Complaint & Resolution System</small></span>
+  </a>
+  <div class="top-actions">
+    <span id="rolePill" class="role-pill hidden"></span>
+    <button id="logout" class="btn btn-light hidden">Logout</button>
+  </div>
+</header>
+
+<main class="container">
+  <section id="landing" class="view">
+    <div class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">SMART CAMPUS • STUDENT VOICE • DEAN ACTION</span>
+        <h1>Raise a problem.<br><span>Get a solution.</span></h1>
+        <p>Students report genuine campus problems. The College Dean reviews each complaint, provides a solution, identifies the root cause and records preventive action so the issue is less likely to happen again.</p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary" data-view="login">Login to CampusCare</button>
+          <button class="btn btn-outline" data-view="register">Create account</button>
+        </div>
+        <div class="trust-row"><span>✓ Student-only complaint submission</span><span>✓ Dean-only resolution</span><span>✓ Track every solution</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="orb orb-a"></div><div class="orb orb-b"></div>
+        <div class="floating-card card-main"><div class="icon-box purple">📣</div><div><b>Student Complaint</b><small>Wi-Fi problem reported</small></div><span class="mini-status open">Open</span></div>
+        <div class="floating-card card-mid"><div class="icon-box green">💡</div><div><b>Dean Solution</b><small>Network capacity increased</small></div><span class="mini-status solved">Solved</span></div>
+        <div class="floating-card card-small"><div class="icon-box orange">🛡️</div><div><b>Prevention</b><small>Monthly network monitoring</small></div></div>
+      </div>
+    </div>
+    <div class="feature-grid">
+      <article><div class="feature-icon blue">🎓</div><h3>Students raise complaints</h3><p>Report important problems affecting students and track their progress.</p></article>
+      <article><div class="feature-icon purple">🏛️</div><h3>Dean solves problems</h3><p>The Dean does not raise complaints. The Dean reviews them and sends solutions.</p></article>
+      <article><div class="feature-icon green">🔁</div><h3>Prevent repeat issues</h3><p>Record root cause and preventive action along with the final solution.</p></article>
+    </div>
+  </section>
+
+  <section id="login" class="view hidden auth-wrap">
+    <div class="auth-card">
+      <div class="auth-side"><span class="eyebrow">WELCOME BACK</span><h2>One campus.<br><span>Two clear roles.</span></h2><p>Students submit complaints. College Deans review and solve them. Each role gets a focused dashboard.</p><div class="role-note">🎓 <b>Student</b><span>Raise & track complaints</span></div><div class="role-note">🏛️ <b>College Dean</b><span>Review & send solutions</span></div></div>
+      <div class="auth-form"><span class="eyebrow">ACCOUNT ACCESS</span><h2>Login</h2><nav class="role-tabs"><button class="tab active" data-lrole="student">🎓 Student</button><button class="tab" data-lrole="dean">🏛️ College Dean</button></nav><form id="loginForm"><input type="hidden" id="lrole" value="student"><label>Email<input id="lemail" type="email" placeholder="you@college.edu" required></label><label>Password<input id="lpass" type="password" placeholder="Enter password" required></label><button class="btn btn-primary full">Login</button><p id="lmsg" class="msg"></p></form><button class="text-link" data-view="register">Need an account? Register</button><button class="back-link" data-view="landing">← Back to home</button></div>
+    </div>
+  </section>
+
+  <section id="register" class="view hidden auth-wrap">
+    <div class="auth-card single-register">
+      <div class="auth-form wide"><span class="eyebrow">JOIN CAMPUSCARE</span><h2>Create your account</h2><p class="muted">Choose your role carefully. Students can raise complaints; Deans can review and solve them.</p><nav class="role-tabs"><button class="tab active" data-rrole="student">🎓 Student</button><button class="tab" data-rrole="dean">🏛️ College Dean</button></nav><form id="registerForm"><input type="hidden" id="rrole" value="student"><label>Full name<input id="rname" placeholder="Your full name" required></label><label>Email<input id="remail" type="email" placeholder="you@college.edu" required></label><label>Password<input id="rpass" type="password" minlength="8" placeholder="Minimum 8 characters" required></label><label id="codeRow" class="hidden">Dean access code<input id="rcode" placeholder="Enter authorised dean code"></label><button class="btn btn-primary full">Create account</button><p id="rmsg" class="msg"></p></form><button class="text-link" data-view="login">Already registered? Login</button><button class="back-link" data-view="landing">← Back to home</button></div>
+    </div>
+  </section>
+
+  <section id="student" class="view hidden dashboard">
+    <div class="dashboard-head student-head"><div><span class="eyebrow">🎓 STUDENT PORTAL</span><h2>Hello, <span id="sname"></span>!</h2><p>Raise problems that affect you or other students and track the Dean's response.</p></div><button id="newBtn" class="btn btn-primary">＋ Raise a complaint</button></div>
+    <div class="notice student-notice"><b>📌 Student responsibility</b><span>Please submit genuine college issues with clear details so the Dean can take effective action.</span></div>
+    <div id="newCard" class="card form-card hidden"><div class="section-title"><div><span class="eyebrow">NEW REPORT</span><h3>Raise a complaint</h3></div><button type="button" class="icon-close" id="cancel">×</button></div><form id="complaintForm"><label>Complaint title<input id="ctitle" maxlength="180" placeholder="Example: Wi-Fi disconnects during classes" required></label><div class="grid-2"><label>Category<select id="ccat" required><option value="">Select category</option><option>Infrastructure</option><option>Hostel</option><option>Academics</option><option>Transport</option><option>Food & Canteen</option><option>Safety</option><option>IT & Wi-Fi</option><option>Other</option></select></label><label>Severity<select id="csev" required><option value="">Select severity</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="critical">Critical</option></select></label></div><label>Describe the problem<textarea id="cdesc" rows="5" placeholder="Explain what is happening, where it happens and how students are affected..." required></textarea></label><button class="btn btn-primary" type="submit">Submit complaint</button><p id="cmsg" class="msg"></p></form></div>
+    <div class="section-title list-title"><div><span class="eyebrow">MY REPORTS</span><h3>Complaint history</h3></div></div><div id="studentList" class="complaint-grid"></div>
+  </section>
+
+  <section id="dean" class="view hidden dashboard">
+    <div class="dashboard-head dean-head"><div><span class="eyebrow">🏛️ COLLEGE DEAN PORTAL</span><h2>Resolve campus problems</h2><p>Review student complaints, send solutions and prevent the same issue from repeating.</p></div><div class="stat-card"><b id="count">0</b><span>Student complaints</span></div></div>
+    <div class="notice dean-notice"><b>🛡️ Dean workspace</b><span>You cannot raise complaints from this account. Your role is to review student reports and provide solutions, root causes and preventive actions.</span></div>
+    <div class="workflow"><div><span>1</span><b>Review</b><small>Understand the student problem</small></div><div><span>2</span><b>Solve</b><small>Send a clear solution</small></div><div><span>3</span><b>Prevent</b><small>Record root cause & prevention</small></div></div>
+    <div class="section-title list-title"><div><span class="eyebrow">INBOX</span><h3>Student complaints</h3></div></div><div id="deanList" class="complaint-grid"></div>
+  </section>
+</main>
+<footer><b>CampusCare</b> • College Complaint & Resolution System • Built for a better campus</footer>
+<script src="/app.js"></script>
+</body>
+</html>

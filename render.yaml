@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: college-complaint-system
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: DEAN_ACCESS_CODE
+        sync: false
